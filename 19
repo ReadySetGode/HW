@@ -1,0 +1,178 @@
+import java.util.Random;
+
+
+public class Driver 
+{
+	public static void main(String[] args)
+	{
+		int[] arrayOfNumbers = new int[10];
+		Driver.fillArrayWithRandomInts(arrayOfNumbers);
+		Driver.printIntArray(arrayOfNumbers);
+		Driver.sortArray(arrayOfNumbers);
+		Driver.printIntArray(arrayOfNumbers);
+		
+		
+	}
+	static void sortArray(int[] ar)
+	{
+		int hold;
+		for (int i = 0; i < ar.length-1; i++) {
+			for(int j = 0; j < ar.length-2; j++){
+			if (ar[j] > ar[j + 1])
+			{
+				hold = ar[j];
+				ar[j]=ar[j+1];   
+				ar[j+1]=hold;
+			}
+			}
+		}
+		
+		
+		//for (int i =0; i < ar.length-1; i++)
+		//{
+		//	System.out.println(ar[i]);
+		//}
+	}
+	
+	static void fillArrayWithRandomInts(int[] ar)
+	{
+		Random r = new Random();
+		for(int i = 0; i < ar.length; i++)
+		{
+			ar[i] = r.nextInt(101);
+		}
+	}
+	
+	static void printIntArray(int[] ar)
+	{
+		for(int i = 0; i < ar.length; i++)
+		{
+			System.out.print(ar[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	static String charArrayToString(char[] ar)
+	{
+		String answer = "";
+		for(int i = 0; i < ar.length; i++)
+		{
+			answer += ar[i];
+		}
+		return answer;
+	}
+	
+
+	static String stringToCharArray(String s)
+	{
+		String word = "";
+		char[] array = new char[s.length()];
+		 for (int i=0;i<s.length();i++){
+		       array[i]=s.charAt(i);
+		       word = word + s.charAt(i) + "";
+		   }
+		
+		return word;
+	}
+	
+	//returns a new String with all of the vowels
+	//removed form the parameter String
+	//"hello" -> hll
+	static String removeVowels(String s)
+	{
+		String answer = "";
+		String vowel = "aeiou";
+		String letter;
+		for (int i = 0; i < s.length(); i++) {
+			letter = s.substring(i,i+1);
+	          if (vowel.indexOf(letter) == -1) {
+	            
+		answer = answer + letter;
+	          }
+		}
+		return answer;
+		
+	}
+	
+	//returns a new String with all of the consonants
+	//removed form the parameter String
+	//"hello" -> eo
+	static String removeConsonants(String s)
+	{
+		String answer = "";
+		String cons = "qwrtyplkjhgfdszxcvbnm";
+		String letter;
+		for (int i = 0; i < s.length(); i++) {
+			letter = s.substring(i,i+1);
+	          if (cons.indexOf(letter) == -1) {
+	            
+		answer = answer + letter;
+	          }
+		}
+		return answer;
+	}
+		
+	//returns a new String with all of the numbers
+	//removed form the parameter String
+	//"he11o" -> heo
+	static String removeDigits(String s)
+	{
+		String answer = "";
+		String VOWELS = "1234567890";
+		String letter;
+		for (int i = 0; i < s.length(); i++) {
+			letter = s.substring(i,i+1);
+	          if (VOWELS.indexOf(letter) == -1) {
+	            
+		answer = answer + letter;
+	          }
+		}
+		return answer;
+	}
+		
+	//return the first occurence in s where c is found or -1 if 
+	//it was not found - we can't use the String's indexOf
+	static int indexOf(String s, char c)
+	{
+		for(int i = 0; i < s.length(); i = i + 1)
+		{
+			if(s.charAt(i) == c)
+			{
+				return i;
+			}
+		}
+		//if we are still kicking....
+		return -1;
+	}
+	
+	static void displayString(String s)
+	{
+		//should display the contents of the String one character per line
+		for(int i = 0; i < s.length(); i = i + 1)
+		{
+			System.out.println(s.charAt(i));
+		}
+	}
+	
+	static void displayWithSpaces(String s)
+	{
+		String answer = "";
+		for(int i = 0; i < s.length(); i = i + 1)
+		{
+			answer = answer + s.charAt(i) + " ";
+		}
+		System.out.println(answer);
+	}
+	
+	//this method should display on a single line the input String
+	//in reverse: "hello" -> "olleh"
+	static String reverseString(String s)
+	{
+		String answer = "";
+		for(int i = s.length()-1; i >= 0; i = i - 1)
+		{
+			answer = answer + s.charAt(i);
+		}
+		return answer;
+	}
+}
