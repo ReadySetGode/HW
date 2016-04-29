@@ -1,0 +1,66 @@
+import java.util.Random;
+
+
+public class Driver 
+{
+	public static void main(String[] args)
+	{
+		int[] arrayOfNumbers = new int[10];
+		Driver.fillArrayWithRandomInts(arrayOfNumbers);
+		Driver.printIntArray(arrayOfNumbers);
+		Driver.mergeSort(arrayOfNumbers);
+		Driver.printIntArray(arrayOfNumbers);
+	}
+	
+	
+	//Homework
+	static void mergeSort(int[] ar)
+	{
+		Driver.mergeSortHelper(ar, 0, ar.length-1);
+	}
+	
+	static void mergeSortHelper(int[] ar, int begin, int end)
+	{
+		Driver.display(ar, begin, end);
+		if(begin != end)
+		{
+			int leftBegin = begin;
+			Driver.mergeSortHelper(ar, begin, ((end-begin)/2 + begin));
+			Driver.mergeSortHelper(ar, ((end-begin)/2 + begin)+1, end);
+			int rightEnd = end;
+			int rightBegin = ((end-begin)/2 + begin)+1;
+			int leftEnd = ((end-begin)/2 + begin);
+			Driver.mergeSortHelper(ar, leftBegin, leftEnd);
+			Driver.mergeSortHelper(ar, rightBegin, rightEnd);
+			
+		}
+	}
+	
+	static void display(int[], int begin, int end)
+	{
+		for (int i = begin; i <= end; i++ )
+		{
+			
+		}
+	}
+	
+	static void fillArrayWithRandomInts(int[] ar)
+	{
+		Random r = new Random();
+		for(int i = 0; i < ar.length; i++)
+		{
+			ar[i] = r.nextInt(101);
+		}
+	}
+
+static void printIntArray(int[] ar)
+{
+	for(int i = 0; i < ar.length; i++)
+	{
+		System.out.print(ar[i] + " ");
+	}
+	System.out.println();
+}
+}
+
+	
